@@ -2,8 +2,6 @@ FROM node:6.3
 
 MAINTAINER Paolo Chiabrera <paolo.chiabrera@gmail.com>
 
-EXPOSE 80
-
 ENV NODE_ENV production
 
 # Install nginx
@@ -28,4 +26,6 @@ RUN npm run build
 
 RUN yes | cp ./nginx.conf /etc/nginx/nginx.conf
 
-CMD service nginx start
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
