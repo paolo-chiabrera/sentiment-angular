@@ -2,15 +2,32 @@ FROM node:6.3
 
 MAINTAINER Paolo Chiabrera <paolo.chiabrera@gmail.com>
 
+EXPOSE 80
+
+# Install nginx
+
+RUN apt-get update
+
+RUN apt-get -y install nginx
+
+# setup angular app
+
 ENV NODE_ENV production
 
-RUN npm install
+ADD package.json /tmp/package.json
+
+RUN cd /tmp && npm install --production
+
+RUN mkdir -p /home/app && cp -a /tmp/node_modules /home/app
+
+WORKDIR /home/app
+
+ADD . /home/app
 
 RUN npm run build
 
-COPY ./dist /usr/share/static/sentiment
+# overwrite nginx config
 
-# Set the default command to execute
-# when creating a new container
+RUN yes | cp ./nginx.conf /etc/nginx/nginx.conf
 
-CMD echo "All done"
+CMD service nginx start
