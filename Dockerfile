@@ -20,7 +20,7 @@ ADD . /home/app
 
 WORKDIR /home/app
 
-RUN npm install
+RUN npm install --dev
 
 RUN npm run build
 
