@@ -3,7 +3,7 @@ import 'zone.js';
 
 import {bootstrap} from '@angular/platform-browser-dynamic';
 
-import { HTTP_PROVIDERS } from '@angular/http';
+import {HTTP_PROVIDERS} from '@angular/http';
 
 import './index.scss';
 

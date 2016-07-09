@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {Header} from './header';
 import {Footer} from './footer';
 
-import { Trianglify } from './trianglify/trianglify';
-import { Sentiment } from './sentiment/sentiment';
+import {Trianglify} from './trianglify/trianglify';
+import {Sentiment} from './sentiment/sentiment';
 
-import { ShadeService } from './shade.service';
+import {ShadeService} from './shade/shade.service';
 
 @Component({
   selector: 'App',
@@ -32,7 +32,7 @@ export class Main {
     this.shadeService = shadeService;
   }
 
-  onSentimentChange(sentiment){
+  onSentimentChange(sentiment) {
     this.shades = this.shadeService.getShades(sentiment);
     this.colour = this.shades[0];
   }

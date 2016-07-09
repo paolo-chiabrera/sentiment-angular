@@ -1,6 +1,6 @@
-import { Component, Output, EventEmitter, Response } from '@angular/core';
+import {Component, Output, EventEmitter, Response} from '@angular/core';
 
-import { SentimentService } from './sentiment.service';
+import {SentimentService} from './sentiment.service';
 
 @Component({
   selector: 'sentiment',
@@ -34,14 +34,14 @@ export class Sentiment {
 
   changeText() {
 
-    if(this.timeout !== null) clearTimeout(this.timeout);
+    if (this.timeout !== null) clearTimeout(this.timeout);
 
-    this.timeout = setTimeout( () => {
+    this.timeout = setTimeout(() => {
       this.getSentiment(this.freeText);
     }, 400);
   }
 
   ngOnInit() {
-    this.changeText()
+    this.changeText();
   }
 }

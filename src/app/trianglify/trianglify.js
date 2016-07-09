@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import {Component, ElementRef, Input} from '@angular/core';
 
 import $ from 'jquery';
 import TrianglifyJS from 'trianglify';
@@ -22,7 +22,7 @@ export class Trianglify {
     this.el = el.nativeElement;
 
     window.onresize = () => {
-      this.generate()
+      this.generate();
     };
   }
 
@@ -35,7 +35,11 @@ export class Trianglify {
 
     this.setSize();
 
-    this.pattern = TrianglifyJS({width: this.width, height: this.height, x_colors: this.shades});
+    this.pattern = TrianglifyJS({
+      width: this.width,
+      height: this.height,
+      x_colors: this.shades
+    });
 
     const canvasElement = this.pattern.canvas();
 
@@ -43,7 +47,7 @@ export class Trianglify {
 
     if(this.interval !== null) clearInterval(this.interval);
 
-    this.interval = setInterval( () => {
+    this.interval = setInterval(() => {
       this.generate();
     }, 4000);
   }

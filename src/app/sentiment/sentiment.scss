@@ -3,7 +3,11 @@ $dark-grey: #444;
 sentiment{
   position: relative;
   text-align: center;
-  margin-top: 20%;
+  margin-top: 20em;
+
+  @media (max-width: 640px) {
+    margin-top: 10em;
+  }
 
   .wrapper{
     display: inline-block;
