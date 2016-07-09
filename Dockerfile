@@ -8,7 +8,7 @@ ENV NODE_ENV production
 
 # Install nginx
 
-#RUN apt-get update
+RUN apt-get update
 
 RUN apt-get -y install nginx
 
