@@ -10,15 +10,19 @@ RUN apt-get update
 
 RUN apt-get -y install nginx
 
-# setup angular app
+# cache npm install
 
-RUN mkdir -p /home/app
+ADD package.json /tmp/package.json
+
+RUN cd /tmp && npm install --dev
+
+RUN mkdir -p /home/app && cp -a /tmp/node_modules /home/app/
+
+# copy the app content
 
 ADD . /home/app
 
 WORKDIR /home/app
-
-RUN npm install --dev
 
 RUN npm run build
 
