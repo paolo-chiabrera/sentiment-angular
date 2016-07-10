@@ -4,7 +4,7 @@ import {Component, Input} from '@angular/core';
   selector: 'Footer',
   template: `
     <footer class="footer">
-      Created by the&nbsp;
+      Created by &nbsp;
       <a href="https://github.com/paolo-chiabrera" [ngStyle]="{'color': colour}">
         Paolo Chiabrera
       </a>
