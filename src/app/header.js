@@ -6,7 +6,7 @@ import {Component, Input} from '@angular/core';
     <header class="header">
       <p class="header-title">
         <a href="/" [ngStyle]="{'color': colour}">
-          Visual sentiment
+          Sentiment experiment
         </a>
       </p>
     </header>
